@@ -1,5 +1,10 @@
 var countDownDate = new Date("Jan 8, 2024 00:00:00").getTime();
 
+if (countDownDate - new Date().getTime() <= 0) {
+    countDownDate = new Date("Jan 22, 2024 00:00:00").getTime();
+    document.getElementById("text-title").textContent = 'До канікул залишилось:';
+}
+
 function surprize() {
     window.location.href = "https://youtu.be/dQw4w9WgXcQ"
 }
