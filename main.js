@@ -1,8 +1,25 @@
-var countDownDate = new Date("Jan 8, 2024 00:00:00").getTime();
+var dates = [
+    {title : "канікул", name : "Канікули", time : "22.01.2024"},
+    {title : "навчання", name : "Навчання", time : "12.02.2024"},
+    {title : "Пасхи", name : "Пасха", time : "05.05.2024"},
+    {title : "сесії", name : "Сесія", time : "27.05.2024"},
+]
+dates.forEach(element => {
+    let date = element.time.split(".");
+    let time = `${date[2]}-${date[1]}-${date[0]}`;
+    element.utc = new Date(`${time} 00:00:00`).getTime();
+});
 
-if (countDownDate - new Date().getTime() <= 0) {
-    countDownDate = new Date("Jan 22, 2024 00:00:00").getTime();
-    document.getElementById("text-title").textContent = 'До канікул залишилось:';
+const now = new Date().getTime();
+var countDownDate = 0;
+
+for (let i = 0; i < dates.length; i++) {
+    const element = dates[i];
+    if (element.utc >= now) {
+        countDownDate = element.utc;
+        document.getElementById("text-title").textContent = `До ${element.title} залишилось:`;
+        break;
+    }
 }
 
 function surprize() {
