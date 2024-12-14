@@ -1,5 +1,5 @@
 var dates = [
-    {title : "сесії", name : "Сесія", time : "06.01.2025"},
+    {title : "сесії", name : "Сесія", time : "13.01.2025"},
 ]
 dates.forEach(element => {
     let date = element.time.split(".");
